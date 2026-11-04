@@ -34,8 +34,8 @@ export const profile = {
   description: { en: 'Nonlinear Analysis & Complex Analysis', zh: '关注非线性分析与复分析' },
   email: 'xiaoao2math@163.com',
   avatar: '/xiao-ao.jpg',
-  cv: '/xiao-ao-cv.pdf',
-  motto: { en: 'Think clearly. Explore deeply.', zh: '清晰地思考，深入地探索。' },
+  cv: '/xiao-ao-cv.pdf?v=e11f19148f71',
+  motto: { en: 'Do what you do not want to do, so you can do what you want to do.', zh: '做自己不想做的，才能做想做的' },
   intro: {
     en: [
       'I am an undergraduate in Mathematics and Applied Mathematics at the College of Mathematics and Statistics, Northwest Normal University. My primary academic interests include nonlinear differential equations, boundary value problems, and complex analysis.',
@@ -70,7 +70,11 @@ export const education: TimelineItem[] = [{
   period: '2021 – 2024',
   title: { en: 'Hengyang No. 8 High School', zh: '衡阳市第八中学' },
   subtitle: { en: 'High School', zh: '高中' },
-  location: { en: 'Hengyang, China', zh: '中国 · 衡阳' }
+  location: { en: 'Hengyang, China', zh: '中国 · 衡阳' },
+  description: {
+    en: 'Received mathematics competition training and earned a provincial second prize in the National High School Mathematics League and a second prize in the China Northern Mathematical Olympiad, deepening my interest in mathematics.',
+    zh: '接受数学竞赛培养，曾获全国高中生数学联赛省二等奖、中国北方数学奥林匹克竞赛二等奖等，逐步深化对数学的兴趣。'
+  }
 }];
 
 export const technicalSkills = [
