@@ -1,0 +1,85 @@
+---
+import { siGithub, siZhihu } from "simple-icons";
+import { profile } from "../data/profile";
+
+const mailHref = `mailto:${profile.email}`;
+const brandIcons = {
+  github: siGithub,
+  zhihu: siZhihu
+};
+
+const getBrandIcon = (item: { label: string; url: string }) => {
+  if (item.url.includes("github.com")) return brandIcons.github;
+  return brandIcons.zhihu;
+};
+
+const getBrandKey = (item: { url: string }) => {
+  if (item.url.includes("github.com")) return "github";
+  return "zhihu";
+};
+---
+
+<aside class="sidebar" id="profile-sidebar" data-profile-sidebar aria-label="Profile information">
+  <button class="sidebar-close" type="button" data-sidebar-close aria-label="Close profile panel">
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+  </button>
+  <div class="s-head">
+    <a class="avatar" href="/" aria-label="Xiao Ao profile">
+      <img src={profile.avatar} alt={profile.displayName.en} />
+    </a>
+    <div class="s-name">
+      <span data-locale="en">{profile.displayName.en}</span>
+      <span data-locale="zh">{profile.displayName.zh}</span>
+    </div>
+    <div class="s-sub">
+      <span data-locale="en">{profile.role.en}</span>
+      <span data-locale="zh">{profile.role.zh}</span>
+    </div>
+    <p class="s-motto">
+      <span data-locale="en">{profile.motto.en}</span>
+      <span data-locale="zh">{profile.motto.zh}</span>
+    </p>
+  </div>
+
+  <div class="s-details">
+    <div class="s-row s-institution">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 9.75h15M6 9.75V21m4-11.25V21m4-11.25V21m4-11.25V21M3.75 6.75 12 3l8.25 3.75v3H3.75v-3z"/></svg>
+      <span data-locale="en">{profile.affiliation.en}</span>
+      <span data-locale="zh">{profile.affiliation.zh}</span>
+    </div>
+    <div class="s-row">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z"/></svg>
+      <span data-locale="en">{profile.location.en}</span>
+      <span data-locale="zh">{profile.location.zh}</span>
+    </div>
+    <div class="s-row s-description">
+      <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="8.25"/><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" d="M12 1.5v2.25M12 20.25v2.25M1.5 12h2.25M20.25 12h2.25"/></svg>
+      <span data-locale="en">{profile.description.en}</span>
+      <span data-locale="zh">{profile.description.zh}</span>
+    </div>
+    <a class="s-link s-email-link" href={mailHref}>
+      <span class="s-brand-mark" aria-hidden="true">
+        <svg class="brand-icon brand-icon-stroke" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0-8.57 5.27a2.25 2.25 0 0 1-2.36 0L2.25 6.75" /></svg>
+      </span>
+      <span class="s-link-label">{profile.email}</span>
+    </a>
+    {profile.primarySocials.map((item) => (
+      <a class="s-link" href={item.url} target="_blank" rel="noopener noreferrer" style={`--brand-color: #${getBrandIcon(item).hex}`}>
+        <span class="s-brand-mark" data-brand={getBrandKey(item)} aria-hidden="true">
+          <svg class="brand-icon" viewBox="0 0 24 24">
+            <path d={getBrandIcon(item).path}></path>
+          </svg>
+        </span>
+        <span class="s-link-label">{item.label}</span>
+        <svg class="s-link-arrow" fill="none" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5h8v8M15 5 6 14" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    ))}
+  </div>
+
+  <a class="cv-btn" href={profile.cv}>
+    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+    <span data-locale="en">Request Full CV</span>
+    <span data-locale="zh">索取完整简历</span>
+  </a>
+
+</aside>
