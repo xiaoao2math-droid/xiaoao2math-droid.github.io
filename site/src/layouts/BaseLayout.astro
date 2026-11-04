@@ -170,6 +170,10 @@ const {
             image.alt = trigger.dataset.qrTitle || '微信公众号 · 傲傲数学';
           }
           if (title) title.textContent = trigger.dataset.qrTitle || '微信公众号 · 傲傲数学';
+          const captionZh = wechatModal?.querySelector('p [data-locale="zh"]');
+          const captionEn = wechatModal?.querySelector('p [data-locale="en"]');
+          if (captionZh) captionZh.textContent = trigger.dataset.qrDescriptionZh || '扫码关注，也可以保存图片后识别。';
+          if (captionEn) captionEn.textContent = trigger.dataset.qrDescriptionEn || 'Scan or save the QR code to follow.';
           openWechat();
         });
       });

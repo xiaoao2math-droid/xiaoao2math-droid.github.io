@@ -234,12 +234,14 @@ const personalIconMap: Record<string, { path: string }> = {
                       {publication.authors.map((author, index) => (
                         <>
                           <span class={author === profile.authorName ? "publication-author-self" : undefined}>{author}</span>
+                          {publication.correspondingAuthor === author && <sup class="publication-author-marker" aria-label="Corresponding author">*</sup>}
                           {publication.equalContribution?.includes(author) && <sup class="publication-author-marker">†</sup>}
                           {index < publication.authors.length - 1 && <span>, </span>}
                         </>
                       ))}
                     </div>
                     <div class="publication-resources">
+                      <span class="publication-status"><span data-locale="en">{publication.status.en}</span><span data-locale="zh">{publication.status.zh}</span></span>
                       {
                         publication.pdf ? (
                           <a class="publication-resource-link publication-pdf-link" href={publication.pdf} target="_blank" rel="noopener noreferrer">
@@ -360,7 +362,7 @@ const personalIconMap: Record<string, { path: string }> = {
               <span data-locale="zh">其他平台</span>
             </span>
             {personalLinks.map((item) => item.label === "WeChat" ? (
-              <button class="personal-link" type="button" aria-label="WeChat" title="WeChat" aria-controls="wechat-dialog" aria-expanded="false" data-wechat-trigger>
+              <button class="personal-link" type="button" aria-label="WeChat" title="WeChat" aria-controls="wechat-dialog" aria-expanded="false" data-wechat-trigger data-qr-src="/wechat-personal.png" data-qr-title="个人微信" data-qr-description-zh="扫描二维码，添加我的微信。" data-qr-description-en="Scan the QR code to add me on WeChat.">
                 <span class="personal-link-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24"><path d={personalIconMap[item.label].path}></path></svg>
                 </span>

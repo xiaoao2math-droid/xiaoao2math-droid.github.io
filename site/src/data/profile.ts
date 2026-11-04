@@ -14,6 +14,8 @@ export type Publication = {
   venue: Localized;
   title: Localized;
   authors: string[];
+  status: Localized;
+  correspondingAuthor?: string;
   equalContribution?: string[];
   pdf?: string;
   code?: string;
@@ -32,18 +34,18 @@ export const profile = {
   description: { en: 'Nonlinear Analysis & Complex Analysis', zh: '关注非线性分析与复分析' },
   email: 'xiaoao2math@163.com',
   avatar: '/xiao-ao.jpg',
-  cv: 'mailto:xiaoao2math@163.com?subject=CV%20Request%20for%20Xiao%20Ao',
+  cv: '/xiao-ao-cv.pdf',
   motto: { en: 'Think clearly. Explore deeply.', zh: '清晰地思考，深入地探索。' },
   intro: {
     en: [
-      'I am an undergraduate in Mathematics and Applied Mathematics at the College of Mathematics and Statistics, Northwest Normal University (2024–2028). My academic interests include nonlinear differential equations, boundary value problems, and complex analysis.',
-      'I enjoy connecting rigorous mathematical reasoning with computation: reading the literature, developing proofs, and exploring mathematical models. My research includes positive solutions for Minkowski-curvature boundary value problems and an infinitesimal circular version of Morera’s theorem.',
-      'Alongside my studies, I participate in mathematical modeling and data mining competitions, and share mathematics through my Douyin and WeChat accounts. I value clarity, intellectual rigor, and the exchange of ideas.'
+      'I am an undergraduate in Mathematics and Applied Mathematics at the College of Mathematics and Statistics, Northwest Normal University. My primary academic interests include nonlinear differential equations, boundary value problems, and complex analysis.',
+      'In my studies and research, I focus on understanding and exploring mathematical theory. Through literature reading, theoretical derivation, independent thinking, and the assistance of artificial intelligence tools, I continue to deepen my understanding of mathematical problems. I currently focus on differential equations and mathematical analysis, and have obtained some preliminary results in related problems. Looking ahead, I hope to explore the possibilities of AI-assisted mathematical research, pursue mathematical questions that interest me, and broaden my academic horizons.',
+      'Outside my studies, I actively participate in mathematical modeling and data mining competitions, and share mathematical knowledge and learning resources through Douyin and WeChat. I value clear communication, rigorous thinking, and exchanges with my peers.'
     ],
     zh: [
-      '我是西北师范大学数学与统计学院数学与应用数学专业本科生（2024—2028），主要学术兴趣包括非线性微分方程、边值问题与复分析。',
-      '在学习与研究中，我希望把严谨的数学推理和计算实践联系起来，通过文献阅读、证明推导与模型探索理解问题。目前的研究涉及 Minkowski 曲率边值问题正解的存在性，以及 Morera 定理的无穷小圆周版本。',
-      '学习之外，我参加数学建模与数据挖掘竞赛，也通过抖音和微信公众号分享数学知识与学习资源。我重视清晰的表达、严谨的思考，以及与同伴之间的交流。'
+      '我是西北师范大学数学与统计学院数学与应用数学专业本科生，主要学术兴趣包括非线性微分方程、边值问题与复分析。',
+      '在学习与研究中，我注重对数学理论的理解与探索，通过文献阅读、理论推导、独立思考以及人工智能工具的辅助，不断深化对数学问题的认识。目前，我主要关注微分方程与数学分析相关领域，并在相关问题的研究中取得了一些初步成果。未来，我希望进一步探索人工智能辅助数学研究的可能性，持续深入研究感兴趣的数学问题，不断拓展学术视野。',
+      '学习之外，我积极参加数学建模与数据挖掘竞赛，也通过抖音和微信公众号分享数学知识与学习资源。我重视清晰的表达、严谨的思考，以及与同伴之间的交流。'
     ]
   },
   primarySocials: [{ label: 'GitHub', url: 'https://github.com/xiaoao2math-droid' }],
@@ -61,9 +63,14 @@ export const education: TimelineItem[] = [{
   subtitle: { en: 'B.Sc. in Mathematics and Applied Mathematics (in progress)', zh: '数学与应用数学 · 理学学士（在读）' },
   location: { en: 'Lanzhou, China', zh: '中国 · 兰州' },
   descriptionItems: [
-    { en: 'GPA 4.01/5.0 · Major rank 7/274 · Overall assessment 4/274', zh: 'GPA 4.01/5.0 · 专业排名 7/274 · 综合测评 4/274' },
+    { en: 'GPA 4.01/5.0 · Major rank: Top 2.5% · Overall assessment: 1/56', zh: 'GPA 4.01/5.0 · 专业排名前 2.5% · 综合测评 1/56' },
     { en: 'A foundation in analysis, algebra, geometry, probability, and mathematical modeling.', zh: '系统学习分析、代数、几何、概率统计与数学建模，持续训练数学证明和问题分析能力。' }
   ]
+}, {
+  period: '2021 – 2024',
+  title: { en: 'Hengyang No. 8 High School', zh: '衡阳市第八中学' },
+  subtitle: { en: 'High School', zh: '高中' },
+  location: { en: 'Hengyang, China', zh: '中国 · 衡阳' }
 }];
 
 export const technicalSkills = [
@@ -95,24 +102,28 @@ export const publications: Publication[] = [
       zh: 'Positive solutions to semipositone problems with mean curvature operator in Minkowski space'
     },
     authors: ['Ao Xiao'],
+    status: { en: 'Under review', zh: '在审' },
     pdf: 'https://arxiv.org/pdf/2608.05711',
     url: 'https://arxiv.org/abs/2608.05711',
     description: { en: 'Independent research on positive solutions for a one-dimensional Minkowski-curvature equation with mixed boundary conditions and a sign-changing nonlinearity.', zh: '独立研究。围绕具有混合边界条件与变号非线性项的一维 Minkowski 曲率方程，研究正解的存在性。' }
   },
   {
     year: '2026',
-    venue: { en: 'arXiv:2608.04540', zh: 'arXiv:2608.04540' },
+    venue: { en: 'CMFT', zh: 'CMFT' },
     title: { en: 'An Infinitesimal Circular Morera Theorem', zh: 'An Infinitesimal Circular Morera Theorem' },
-    authors: ['Qiteng Guo', 'Ao Xiao'],
-    pdf: 'https://arxiv.org/pdf/2608.04540',
+    authors: ['Ao Xiao', 'Qiteng Guo'],
+    correspondingAuthor: 'Ao Xiao',
+    status: { en: 'Accepted by CMFT', zh: 'CMFT 已录用' },
+    pdf: '/papers/xiao-guo-cmft-manuscript.pdf',
     url: 'https://arxiv.org/abs/2608.04540',
     description: { en: 'An infinitesimal circular version of Morera’s theorem, characterizing holomorphicity through asymptotic local circular integrals.', zh: 'Morera 定理的无穷小圆周版本，通过局部圆周积分的渐近条件刻画全纯性。' }
   }
 ];
 
-export const publicationNote = { en: 'Preprints and publicly available research.', zh: '预印本与已公开的研究工作。' };
+export const publicationNote = { en: 'Research papers and preprints. * Corresponding author.', zh: '研究论文与预印本。* 表示通讯作者。' };
 
 export const competitions: RecognitionItem[] = [
+  { period: '2026', title: { zh: '全国大学生数学建模竞赛甘肃省特等奖（队长）', en: 'Gansu Provincial Grand Prize, CUMCM (team leader)' }, subtitle: { zh: '省级', en: 'Provincial' } },
   { period: '2026', title: { zh: '美国大学生数学建模竞赛 H 奖（队长）', en: 'Honorable Mention, Mathematical Contest in Modeling (team leader)' }, subtitle: { zh: '国际竞赛', en: 'International' } },
   { period: '2025', title: { zh: '全国大学生数学建模竞赛省级一等奖', en: 'Provincial First Prize, CUMCM' }, subtitle: { zh: '省级', en: 'Provincial' } },
   { period: '2025', title: { zh: '甘肃省第二届数据挖掘大赛省级特等奖（队长）', en: 'Provincial Grand Prize, Gansu Data Mining Competition (team leader)' }, subtitle: { zh: '省级', en: 'Provincial' } },
@@ -122,6 +133,7 @@ export const competitions: RecognitionItem[] = [
 ];
 
 export const honors: RecognitionItem[] = [
+  { period: '2026', title: { zh: '校级一等奖学金', en: 'First-class University Scholarship' }, subtitle: { zh: '西北师范大学', en: 'Northwest Normal University' } },
   { period: '2025', title: { zh: '校级一等奖学金', en: 'First-class University Scholarship' }, subtitle: { zh: '西北师范大学', en: 'Northwest Normal University' } },
   { period: '2025', title: { zh: '优秀共青团员', en: 'Outstanding Communist Youth League Member' }, subtitle: { zh: '西北师范大学', en: 'Northwest Normal University' } },
   { period: '2025', title: { zh: '师大好同学', en: 'Exemplary Student for Peer Support' }, subtitle: { zh: '西北师范大学', en: 'Northwest Normal University' } }
